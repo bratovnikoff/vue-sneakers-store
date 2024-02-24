@@ -1,7 +1,7 @@
 <script setup>
 import AppCard from './AppCard.vue'
 
-defineProps({ items: Array })
+defineProps({ items: Array, isFavorites: Boolean })
 
 const emit = defineEmits(['addToFavorite', 'addToCart'])
 </script>
@@ -17,8 +17,8 @@ const emit = defineEmits(['addToFavorite', 'addToCart'])
       :price="item.price"
       :isFavorite="item.isFavorite"
       :isAdded="item.isAdded"
-      :onCLickFavorite="() => emit('addToFavorite', item)"
-      :onCLickAdd="() => emit('addToCart', item)"
+      :onCLickFavorite="isFavorites ? null : () => emit('addToFavorite', item)"
+      :onCLickAdd="isFavorites ? null : () => emit('addToCart', item)"
     />
   </div>
 </template>

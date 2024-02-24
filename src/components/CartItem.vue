@@ -3,8 +3,8 @@ const emit = defineEmits(['onClickRemove'])
 
 defineProps({
   id: Number,
-  imageUrl: String,
   title: String,
+  imageUrl: String,
   price: Number
 })
 </script>
